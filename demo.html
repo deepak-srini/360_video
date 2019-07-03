@@ -1,0 +1,47 @@
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="aframe.min.js"></script>
+  <script src="aframe-video-controls.min.js"></script>
+  <script src="aframe-look-at-component.min.js"></script>
+  <style type="text/css">
+  #play-button {
+    bottom: 6%;
+    left: 32%;
+}
+.buttons {
+    position: fixed;
+    width: 130px;
+    height: 100px;
+    z-index: 10;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+  </style>
+
+</head>
+ <body>
+    <a-scene tap-place >
+      <a-assets>
+        <video id="video_1" src="360_video.mp4"></video>
+      </a-assets>
+
+      <a-camera position="0 0 0" id="camera"   look-controls >
+          <a-cursor id="cursor" color="yellow"></a-cursor>
+
+          
+          <a-text id="v_val" width="12" height="3" value="" color="red" position="17 7 -12.5"></a-text>
+          <a-text id="z_val" width="12" height="3" value="" color="red" position="17 7.5 -12.5"></a-text>
+          <a-text id="y_val" width="12" height="3" value="" color="red" position="17 8 -12.5"></a-text>
+          <a-text id="x_val" width="12" height="3" value="" color="red" position="17 8.5 -12.5"></a-text>
+
+          <a-entity video-controls="src:#video_1" ></a-entity>
+          
+      </a-camera>
+      <a-videosphere  src="#video_1" rotation="0 180 0"></a-videosphere>
+    </a-scene>
+    <button id="play-button" class="buttons"  onclick="myFunction()" value="Play"></button>
+  </body>
